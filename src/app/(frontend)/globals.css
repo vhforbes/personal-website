@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+
+/* 
+light theme:
+text - #0f0f0f (rgb: 15, 15, 15)
+background - #dbf0fa (rgb: 219, 240, 250)
+primary - #058fff (rgb: 5, 143, 255)
+secondary - #33a3ff (rgb: 51, 163, 255)
+accent - #05acff (rgb: 5, 172, 255)
+
+dark theme:
+text - #f0f0f0 (rgb: 240, 240, 240)
+background - #051a24 (rgb: 5, 26, 36)
+primary - #0089fa (rgb: 0, 137, 250)
+secondary - #0070cc (rgb: 0, 112, 204)
+accent - #00a7fa (rgb: 0, 167, 250)
+*/
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: unset;
+    font-weight: unset;
+  }
+
+  :root {
+    --background: 219, 240, 250; /* #dbf0fa */
+    --foreground: 15, 15, 15; /* #0f0f0f */
+
+    --card: 219, 240, 250; /* Same as background */
+    --card-foreground: 15, 15, 15; /* Same as foreground */
+
+    --popover: 219, 240, 250; /* Same as background */
+    --popover-foreground: 15, 15, 15; /* Same as foreground */
+
+    --primary: 5, 143, 255; /* #058fff */
+    --primary-foreground: 240, 240, 240; /* #f0f0f0 */
+
+    --secondary: 51, 163, 255; /* #33a3ff */
+    --secondary-foreground: 15, 15, 15; /* #0f0f0f */
+
+    --muted: 219, 240, 250; /* Same as background */
+    --muted-foreground: 15, 15, 15; /* #0f0f0f */
+
+    --accent: 5, 172, 255; /* #05acff */
+    --accent-foreground: 15, 15, 15; /* #0f0f0f */
+
+    --destructive: 255, 0, 0; /* Example red */
+    --destructive-foreground: 240, 240, 240; /* #f0f0f0 */
+
+    --border: 200, 200, 200; /* Example gray */
+    --input: 214, 214, 214; /* Example light gray */
+    --ring: 15, 15, 15; /* #0f0f0f */
+
+    --radius: 0.2rem;
+
+    --success: 0, 200, 0; /* Example green */
+    --warning: 255, 200, 0; /* Example yellow */
+    --error: 255, 0, 0; /* Example red */
+  }
+
+  [data-theme='dark'] {
+    --background: 5, 26, 36; /* #051a24 */
+    --foreground: 240, 240, 240; /* #f0f0f0 */
+
+    --card: 5, 26, 36; /* Same as background */
+    --card-foreground: 240, 240, 240; /* Same as foreground */
+
+    --popover: 5, 26, 36; /* Same as background */
+    --popover-foreground: 240, 240, 240; /* Same as foreground */
+
+    --primary: 0, 137, 250; /* #0089fa */
+    --primary-foreground: 240, 240, 240; /* #f0f0f0 */
+
+    --secondary: 0, 112, 204; /* #0070cc */
+    --secondary-foreground: 240, 240, 240; /* #f0f0f0 */
+
+    --muted: 5, 26, 36; /* Same as background */
+    --muted-foreground: 240, 240, 240; /* #f0f0f0 */
+
+    --accent: 0, 167, 250; /* #00a7fa */
+    --accent-foreground: 240, 240, 240; /* #f0f0f0 */
+
+    --destructive: 255, 0, 0; /* Example red */
+    --destructive-foreground: 240, 240, 240; /* #f0f0f0 */
+
+    --border: 50, 50, 50; /* Example dark gray */
+    --input: 100, 100, 100; /* Example medium gray */
+    --ring: 240, 240, 240; /* #f0f0f0 */
+
+    --success: 0, 200, 0; /* Example green */
+    --warning: 255, 200, 0; /* Example yellow */
+    --error: 255, 0, 0; /* Example red */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-[100vh] flex flex-col;
+  }
+}
+
+html {
+  opacity: 0;
+}
+
+html[data-theme='dark'],
+html[data-theme='light'] {
+  opacity: initial;
+}
