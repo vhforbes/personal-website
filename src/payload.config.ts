@@ -25,7 +25,7 @@ export default buildConfig({
     },
   },
   collections: [Pages, Users, Media],
-  editor: lexicalEditor(),
+  editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
@@ -37,13 +37,13 @@ export default buildConfig({
   }),
   sharp, // what is this
   i18n: {
-    fallbackLanguage: 'pt', // default
+    fallbackLanguage: 'en', // default
     supportedLanguages: { en, pt },
   },
-  // localization: {
-  //   defaultLocale: 'pt',
-  //   locales: ['en', 'pt'],
-  // },
+  localization: {
+    defaultLocale: 'en',
+    locales: ['en', 'pt'],
+  },
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder

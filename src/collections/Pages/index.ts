@@ -1,17 +1,22 @@
-import { MediaBlock } from '@/app/blocks/MediaBlock/config'
+import { IntroductionBlock } from '@/app/blocks/IntroductionBlock/config'
+import { ProfessionalTimelineBlock } from '@/app/blocks/ProfessionalTimeline/config'
 import { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
   fields: [
+    // TITLE
     {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
+    // Tabs: HERO | BLOCKS
     {
       type: 'tabs',
       tabs: [
+        // Hero
         {
           label: 'Hero',
           /* 
@@ -37,6 +42,7 @@ export const Pages: CollectionConfig = {
             },
           ],
         },
+        // Blocks
         {
           /* 
             Custom blocks that I can create
@@ -46,12 +52,19 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [MediaBlock],
+              blocks: [IntroductionBlock, ProfessionalTimelineBlock],
               required: true,
             },
           ],
         },
       ],
+    },
+    // SLUG
+    {
+      name: 'slug',
+      type: 'text',
+      index: true,
+      label: 'Slug',
     },
   ],
 }

@@ -87,7 +87,7 @@ export interface Config {
   };
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'en' | 'pt';
   user: User & {
     collection: 'users';
   };
@@ -125,7 +125,8 @@ export interface Page {
     title?: string | null;
     media: number | Media;
   };
-  layout: MediaBlock[];
+  layout: (IntroductionBlock | ProfessionalTimelineBlock)[];
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -150,13 +151,61 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock".
+ * via the `definition` "introductionBlock".
  */
-export interface MediaBlock {
-  media: number | Media;
+export interface IntroductionBlock {
+  title?: string | null;
+  bodyText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  picture?: (number | null) | Media;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'mediaBlock';
+  blockType: 'introduction';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProfessionalTimelineBlock".
+ */
+export interface ProfessionalTimelineBlock {
+  media: number | Media;
+  'timeline-entry'?:
+    | {
+        Year?: string | null;
+        Title?: string | null;
+        Text?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'professionalTimeline';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -252,17 +301,38 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        mediaBlock?: T | MediaBlockSelect<T>;
+        introduction?: T | IntroductionBlockSelect<T>;
+        professionalTimeline?: T | ProfessionalTimelineBlockSelect<T>;
       };
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock_select".
+ * via the `definition` "introductionBlock_select".
  */
-export interface MediaBlockSelect<T extends boolean = true> {
+export interface IntroductionBlockSelect<T extends boolean = true> {
+  title?: T;
+  bodyText?: T;
+  picture?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProfessionalTimelineBlock_select".
+ */
+export interface ProfessionalTimelineBlockSelect<T extends boolean = true> {
   media?: T;
+  'timeline-entry'?:
+    | T
+    | {
+        Year?: T;
+        Title?: T;
+        Text?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
