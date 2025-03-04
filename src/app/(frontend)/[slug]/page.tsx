@@ -16,15 +16,19 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({ slug })
 
-  console.log(page)
+  console.log('PAGE: ', page)
 
-  const { title, hero, layout } = page
+  if (!page) {
+    return <>No page</>
+  }
+
+  const { title, layout } = page
 
   return (
     <div>
       <h1>{title}</h1>
 
-      <RenderBlocks blocks={layout} />
+      {/* <RenderBlocks blocks={layout} /> */}
     </div>
   )
 }
@@ -37,7 +41,6 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     collection: 'pages',
     limit: 1,
     pagination: false,
-    // need to specify slug on page
     where: {
       slug: {
         equals: slug,
