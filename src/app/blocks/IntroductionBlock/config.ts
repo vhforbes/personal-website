@@ -3,6 +3,7 @@ import type { Block } from 'payload'
 export const IntroductionBlock: Block = {
   slug: 'introduction',
   interfaceName: 'introductionBlock',
+
   fields: [
     {
       name: 'title',
@@ -18,6 +19,7 @@ export const IntroductionBlock: Block = {
       name: 'picture',
       type: 'relationship',
       relationTo: 'media',
+      localized: true,
     },
   ],
 }

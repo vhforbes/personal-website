@@ -1,8 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
-/* 
----break---
-*/
-@plugin 'tailwindcss-animate';
 
 /* 
 light theme:
@@ -23,11 +20,15 @@ accent - #00a7fa (rgb: 0, 167, 250)
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
+  --font-display: 'Inter', 'sans-serif';
+
   --color-neutral: rgb(15, 15, 15);
   --color-background: rgb(219, 240, 250);
   --color-primary: rgb(5, 143, 255);
   --color-secondary: rgb(51, 163, 255);
   --color-accent: rgb(5, 172, 255);
+
+  --color-dark-blue: rgb(5, 26, 36);
 }
 
 [data-theme='dark'] {
@@ -36,4 +37,19 @@ accent - #00a7fa (rgb: 0, 167, 250)
   --color-primary: rgb(0, 137, 250);
   --color-secondary: rgb(0, 112, 204);
   --color-accent: rgb(0, 167, 250);
+}
+
+@layer components {
+  .underline-animation {
+    @apply relative inline-block;
+  }
+
+  .underline-animation::after {
+    @apply content-[''] absolute left-0 bottom-[-1px] w-full h-[2px] bg-primary/80;
+    @apply transform scale-x-0 origin-left transition-transform duration-300 ease-in-out;
+  }
+
+  .underline-animation:hover::after {
+    @apply scale-x-100;
+  }
 }

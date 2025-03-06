@@ -6,12 +6,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select' // get shadcn select
+} from '@/components/ui/select'
 import React, { useState } from 'react'
 
 import type { Theme } from './types'
 
-import { useTheme } from '..'
+import { useTheme } from '../../app/providers/Theme'
 import { themeLocalStorageKey } from './types'
 
 export const ThemeSelector: React.FC = () => {
@@ -37,14 +37,20 @@ export const ThemeSelector: React.FC = () => {
     <Select onValueChange={onThemeChange} value={value}>
       <SelectTrigger
         aria-label="Select a theme"
-        className="w-auto bg-transparent gap-2 pl-0 md:pl-3 border-none"
+        className="w-auto gap-2 pl-0 md:pl-3 border-[1px] cursor-pointer"
       >
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="auto">Auto</SelectItem>
-        <SelectItem value="light">Light</SelectItem>
-        <SelectItem value="dark">Dark</SelectItem>
+      <SelectContent className="bg-background">
+        <SelectItem className="cursor-pointer" value="auto">
+          Auto
+        </SelectItem>
+        <SelectItem className="cursor-pointer" value="light">
+          Light
+        </SelectItem>
+        <SelectItem className="cursor-pointer" value="dark">
+          Dark
+        </SelectItem>
       </SelectContent>
     </Select>
   )

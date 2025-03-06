@@ -3,6 +3,7 @@ import type { Block } from 'payload'
 export const ProfessionalTimelineBlock: Block = {
   slug: 'professionalTimeline',
   interfaceName: 'ProfessionalTimelineBlock',
+
   fields: [
     {
       name: 'media',
@@ -13,19 +14,21 @@ export const ProfessionalTimelineBlock: Block = {
     {
       name: 'timeline-entry',
       type: 'array',
-      localized: true,
       fields: [
         {
           name: 'Year',
           type: 'text',
+          localized: true,
         },
         {
           name: 'Title',
           type: 'text',
+          localized: true,
         },
         {
           name: 'Text',
           type: 'richText',
+          localized: true,
         },
       ],
     },
