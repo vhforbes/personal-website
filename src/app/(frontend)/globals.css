@@ -1,5 +1,8 @@
 @import 'tailwindcss';
-@config '../../../tailwind.config.mjs';
+/* 
+---break---
+*/
+@plugin 'tailwindcss-animate';
 
 /* 
 light theme:
@@ -16,3 +19,21 @@ primary - #0089fa (rgb: 0, 137, 250)
 secondary - #0070cc (rgb: 0, 112, 204)
 accent - #00a7fa (rgb: 0, 167, 250)
 */
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-neutral: rgb(15, 15, 15);
+  --color-background: rgb(219, 240, 250);
+  --color-primary: rgb(5, 143, 255);
+  --color-secondary: rgb(51, 163, 255);
+  --color-accent: rgb(5, 172, 255);
+}
+
+[data-theme='dark'] {
+  --color-neutral: rgb(240, 240, 240);
+  --color-background: rgb(5, 26, 36);
+  --color-primary: rgb(0, 137, 250);
+  --color-secondary: rgb(0, 112, 204);
+  --color-accent: rgb(0, 167, 250);
+}

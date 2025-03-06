@@ -1,5 +1,7 @@
 import React from 'react'
 import './globals.css'
+import { Providers } from '../providers'
+import { ThemeSelector } from '../providers/Theme/ThemeSelector'
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
@@ -12,7 +14,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
+        <Providers>
+          <ThemeSelector />
+          <main className="bg-background">{children}</main>
+        </Providers>
       </body>
     </html>
   )

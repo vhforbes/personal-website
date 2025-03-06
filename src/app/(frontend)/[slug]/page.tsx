@@ -16,8 +16,6 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({ slug })
 
-  console.log('PAGE: ', page)
-
   if (!page) {
     return <>No page</>
   }
@@ -28,7 +26,7 @@ export default async function Page({ params: paramsPromise }: Args) {
     <div>
       <h1>{title}</h1>
 
-      {/* <RenderBlocks blocks={layout} /> */}
+      <RenderBlocks blocks={layout} />
     </div>
   )
 }
