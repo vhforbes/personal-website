@@ -50,8 +50,6 @@ export default async function Page({ params: paramsPromise, searchParams }: Args
 
   return (
     <div>
-      <h1>{title}</h1>
-
       <RenderBlocks blocks={layout} />
     </div>
   )

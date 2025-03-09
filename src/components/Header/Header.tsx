@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 export const Header = () => {
   return (
-    <div className="p-2">
-      <nav className="flex justify-between border-b-[1px] dark:border-white/20 border-black/20 p-2">
+    <div className="px-2">
+      <nav className="flex justify-between  border-b-[1px] dark:border-white/20 border-black/20 px-8 p-2">
         <div className="flex gap-6 items-center">
           <Link className="underline-animation" href={'/'}>
             Home

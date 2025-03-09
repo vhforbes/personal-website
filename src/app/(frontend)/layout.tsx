@@ -1,7 +1,6 @@
 import React from 'react'
 import './globals.css'
 import { Providers } from '../providers'
-import { ThemeSelector } from '../../components/ThemeSelector'
 import { InitTheme } from '../providers/Theme/InitTheme'
 import { Header } from '@/components/Header/Header'
 
