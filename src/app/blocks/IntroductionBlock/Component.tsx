@@ -14,7 +14,7 @@ export const IntroductionBlock: React.FC<Props> = (props) => {
     <div className="p-8">
       <span className="text-3xl text-primary">{title}</span>
 
-      <div className="mt-10">
+      <div>
         <RichText converters={introductionJsxConverter} data={bodyText} />
       </div>
     </div>
