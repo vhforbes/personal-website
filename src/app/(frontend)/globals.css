@@ -30,6 +30,9 @@ accent - #00a7fa (rgb: 0, 167, 250)
   --color-secondary: rgb(51, 163, 255);
   --color-accent: rgb(5, 172, 255);
 
+  --color-lightblue-500: rgb(0, 167, 250);
+
+  --color-darkblue-50: rgb(3, 73, 127);
   --color-darkblue-100: rgb(5, 82, 126);
   --color-darkblue-200: rgb(5, 43, 69);
   --color-darkblue-300: rgb(5, 58, 87);

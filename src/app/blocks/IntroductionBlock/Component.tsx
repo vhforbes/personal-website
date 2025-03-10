@@ -18,13 +18,13 @@ export const IntroductionBlock: React.FC<Props> = (props) => {
 
   return (
     <div className="m-auto w-full">
-      <span className="text-4xl text-primary">{title}</span>
+      <span className="text-primary text-4xl">{title}</span>
 
-      <div className="flex flex-col md:flex-row items-start">
+      <div className="flex flex-col items-start md:flex-row">
         <RichText className="md:pr-24" converters={introductionJsxConverter} data={bodyText} />
 
         <ImageMedia
-          className="rounded-3xl w-72 border-2 border-gray-800 dark:border-gray-200"
+          className="hover:border-accent m-auto w-72 rounded-3xl border-2 border-gray-200"
           picture={picture}
         />
       </div>
