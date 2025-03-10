@@ -1,5 +1,6 @@
 import { IntroductionBlock } from '@/app/blocks/IntroductionBlock/config'
 import { ProfessionalTimelineBlock } from '@/app/blocks/ProfessionalTimeline/config'
+import { ProjectsShowcaseBlock } from '@/app/blocks/ProjectsShowcaseBlock/config'
 import { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -52,7 +53,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [IntroductionBlock, ProfessionalTimelineBlock],
+              blocks: [IntroductionBlock, ProfessionalTimelineBlock, ProjectsShowcaseBlock],
               required: true,
             },
           ],

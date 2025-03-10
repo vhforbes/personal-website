@@ -48,7 +48,11 @@ export default async function Page({ params: paramsPromise, searchParams }: Args
 
   const { title, layout } = page
 
-  return <RenderBlocks blocks={layout} />
+  return (
+    <div className="xl:max-w-7xl m-auto">
+      <RenderBlocks blocks={layout} />
+    </div>
+  )
 }
 
 // What this cache does?

@@ -2,10 +2,12 @@ import { Page } from '@/payload-types'
 import React from 'react'
 import { IntroductionBlock } from './IntroductionBlock/Component'
 import { ProfessionalTimelineBlock } from './ProfessionalTimeline/Component'
+import { ProjectsShowcaseBlock } from './ProjectsShowcaseBlock/Component'
 
 const blockComponents = {
   introduction: IntroductionBlock,
   professionalTimeline: ProfessionalTimelineBlock,
+  projectsShowcase: ProjectsShowcaseBlock,
 }
 
 export const RenderBlocks: React.FC<{
@@ -26,10 +28,10 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <>
+                <div key={i}>
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block key={i} {...block} disableInnerContainer />
-                </>
+                </div>
               )
             }
           }
