@@ -11,32 +11,29 @@ export const ProjectComponent = ({ project }: { project: Project }) => {
   const { name, description, url, media, technologies } = project
 
   const handleClick = useCallback(() => {
-    window.open(url, '_blank', 'noopener,noreferrer')
+    openInNewTab(url)
   }, [url])
 
   return (
     <div
       onClick={handleClick}
-      className="grid-cols-1 rounded-xl border-2 border-gray-400 bg-gray-200 p-4 shadow-sm transition-colors duration-300 hover:cursor-pointer hover:border-gray-400 hover:bg-gray-50"
+      className="dark:bg-darkblue-500 dark:border-darkblue-300 dark:hover:border-darkblue-100 dark:hover:bg-darkblue-200 grid-cols-1 rounded-xl border-2 border-gray-200 bg-white p-4 transition-colors duration-300 hover:cursor-pointer hover:border-gray-400 hover:bg-gray-50"
     >
       <a className="clean group mb-2 flex w-fit" target="_blank" href={url}>
-        <h3 className="mb-0 text-xl font-semibold text-gray-800 transition-all duration-300 group-hover:text-blue-600">
+        <h3 className="dark:text-neutral dark:group-hover:text-accent mb-0 text-xl font-semibold text-gray-800 transition-all duration-300 group-hover:text-blue-600">
           {name}
         </h3>
         <ArrowUpRight
           strokeWidth={2}
-          className="relative w-5 text-gray-600 transition-all duration-300 ease-in-out group-hover:w-6 group-hover:text-blue-600"
+          className="dark:text-neutral dark:group-hover:text-accent relative w-5 text-gray-600 transition-all duration-300 ease-in-out group-hover:w-6 group-hover:text-blue-600"
         />
       </a>
       <div className="flex gap-4">
-        <ImageMedia
-          className="aspect-video h-fit w-36 rounded-md object-cover"
-          picture={media as Media}
-        />
-        <p className="text-sm text-gray-700">{description}</p>
+        <ImageMedia className="aspect-video h-fit w-36 object-cover" picture={media as Media} />
+        <p className="dark:text-sm">{description}</p>
       </div>
 
-      <div className="mt-2 text-gray-600">Tech List</div>
+      <div className="dark:text-inherit">Tech List</div>
     </div>
   )
 }
