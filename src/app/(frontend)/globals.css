@@ -19,6 +19,22 @@ accent - #00a7fa (rgb: 0, 167, 250)
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+h1 {
+  @apply mb-8 text-4xl md:text-5xl lg:text-6xl;
+}
+
+h3 {
+  @apply mb-6 text-3xl md:text-4xl lg:text-5xl;
+}
+
+h3 {
+  @apply mb-4 text-2xl md:text-3xl lg:text-4xl;
+}
+
+a:not(.custom) {
+  @apply underline hover:text-neutral/80;
+}
+
 @theme {
   --font-display: 'Inter', 'sans-serif';
 

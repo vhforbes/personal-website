@@ -24,12 +24,12 @@ export const introductionJsxConverter: JSXConvertersFunction<NodeTypes> = ({
 }) => ({
   ...defaultConverters,
   ...LinkJSXConverter,
-  heading: ({ node }) => {
-    return <CustomHeadingComponent node={node} />
-  },
-  paragraph: ({ node }) => {
-    return <CustomParagraphComponent node={node} />
-  },
+  // heading: ({ node }) => {
+  //   return <CustomHeadingComponent node={node} />
+  // },
+  // paragraph: ({ node }) => {
+  //   return <CustomParagraphComponent node={node} />
+  // },
 })
 
 const CustomHeadingComponent: React.FC<{

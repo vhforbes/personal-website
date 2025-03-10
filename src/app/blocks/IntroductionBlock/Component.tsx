@@ -1,10 +1,10 @@
-import { DefaultNodeTypes, SerializedBlockNode } from '@payloadcms/richtext-lexical'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { introductionJsxConverter } from './jsxConverters'
+import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
 type Props = {
   title: string
-  bodyText: any
+  bodyText: SerializedEditorState
 }
 
 export const IntroductionBlock: React.FC<Props> = (props) => {
