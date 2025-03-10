@@ -20,10 +20,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body className="bg-background text-neutral font-display flex flex-col min-h-svh">
+      <body className="bg-background text-neutral font-display flex min-h-svh flex-col">
         <Providers>
           <Header />
-          <main className="grow md:p-8 bg-[url(/topographyLight.svg)] dark:bg-[url(/topographyDark.svg)] bg-repeat">
+          <main className="grow bg-[url(/topographyLight.svg)] bg-repeat dark:bg-[url(/topographyDark.svg)]">
             {children}
           </main>
           <Footer />

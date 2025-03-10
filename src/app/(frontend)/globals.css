@@ -23,14 +23,20 @@ accent - #00a7fa (rgb: 0, 167, 250)
   --font-display: 'Inter', 'sans-serif';
 
   --color-neutral: rgb(15, 15, 15);
-  --color-background: rgb(219, 240, 250);
+  --color-neutral-dark: rgb(240, 240, 240);
+
+  --color-background: rgb(240, 240, 240);
   --color-primary: rgb(5, 143, 255);
   --color-secondary: rgb(51, 163, 255);
   --color-accent: rgb(5, 172, 255);
 
+  --color-darkblue-100: rgb(5, 82, 126);
+  --color-darkblue-200: rgb(5, 43, 69);
   --color-darkblue-300: rgb(5, 58, 87);
   --color-darkblue-500: rgb(5, 35, 53);
   --color-darkblue-800: rgb(5, 26, 36);
+
+  --color-white: rgb(240, 240, 240);
 }
 
 [data-theme='dark'] {
@@ -39,6 +45,8 @@ accent - #00a7fa (rgb: 0, 167, 250)
   --color-primary: rgb(0, 137, 250);
   --color-secondary: rgb(0, 112, 204);
   --color-accent: rgb(0, 167, 250);
+
+  --color-white: rgb(240, 240, 240);
 }
 
 @layer components {
@@ -47,8 +55,8 @@ accent - #00a7fa (rgb: 0, 167, 250)
   }
 
   .underline-animation::after {
-    @apply content-[''] absolute left-0 bottom-[-1px] w-full h-[2px] bg-primary/80;
-    @apply transform scale-x-0 origin-left transition-transform duration-300 ease-in-out;
+    @apply bg-primary/80 absolute bottom-[-1px] left-0 h-[2px] w-full content-[''];
+    @apply origin-left scale-x-0 transform transition-transform duration-300 ease-in-out;
   }
 
   .underline-animation:hover::after {
@@ -72,6 +80,6 @@ accent - #00a7fa (rgb: 0, 167, 250)
   }
 
   a:not(.no-underline, .clean) {
-    @apply underline hover:text-neutral/80;
+    @apply hover:text-neutral/80 underline;
   }
 }

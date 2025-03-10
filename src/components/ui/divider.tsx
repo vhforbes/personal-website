@@ -1,16 +1,21 @@
-export const Divider = () => {
+export const Divider = ({ className }: { className?: string }) => {
   return (
     <svg
-      width="1408"
-      height="93"
-      viewBox="0 0 1408 93"
-      fill="none"
+      className={`${className} fill-accent/10`}
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1000 100"
     >
-      <path
-        d="M1407 69.4713C1249.31 21.5928 1061.23 11.9954 922.75 33.4864C755.159 59.4946 593.382 93.2936 413.803 91.9618C180.144 75.5839 107.099 51.0855 0.999984 1.00002"
-        stroke="#00A7FA"
-      />
+      <g>
+        <path
+          d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z"
+          opacity=".5"
+        ></path>
+        <path
+          d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z"
+          opacity=".5"
+        ></path>
+        <path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path>
+      </g>
     </svg>
   )
 }
