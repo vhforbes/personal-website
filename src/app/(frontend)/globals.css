@@ -19,22 +19,6 @@ accent - #00a7fa (rgb: 0, 167, 250)
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-h1 {
-  @apply mb-8 text-4xl md:text-5xl;
-}
-
-h3 {
-  @apply mb-6 text-3xl md:text-4xl;
-}
-
-h3 {
-  @apply mb-4 text-2xl md:text-3xl;
-}
-
-a:not(.no-underline) {
-  @apply underline hover:text-neutral/80;
-}
-
 @theme {
   --font-display: 'Inter', 'sans-serif';
 
@@ -44,7 +28,9 @@ a:not(.no-underline) {
   --color-secondary: rgb(51, 163, 255);
   --color-accent: rgb(5, 172, 255);
 
-  --color-dark-blue: rgb(5, 26, 36);
+  --color-darkblue-300: rgb(5, 58, 87);
+  --color-darkblue-500: rgb(5, 35, 53);
+  --color-darkblue-800: rgb(5, 26, 36);
 }
 
 [data-theme='dark'] {
@@ -67,5 +53,25 @@ a:not(.no-underline) {
 
   .underline-animation:hover::after {
     @apply scale-x-100;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply mb-8 text-4xl md:text-5xl;
+  }
+
+  h2 {
+    /* If you want these styles applied only in certain contexts, scope them */
+    @apply mb-6 text-3xl md:text-4xl;
+  }
+
+  h3 {
+    /* If you want these styles applied only in certain contexts, scope them */
+    @apply mb-4 text-2xl md:text-3xl;
+  }
+
+  a:not(.no-underline, .clean) {
+    @apply underline hover:text-neutral/80;
   }
 }

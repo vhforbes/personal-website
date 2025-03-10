@@ -23,7 +23,7 @@ export const ImageMedia: React.FC<ImageMediaProps> = (props) => {
   const { url, alt, width, height } = picture
 
   return (
-    <picture>
+    <>
       {url && width && height ? (
         <Image
           className={cn('', className)}
@@ -34,6 +34,6 @@ export const ImageMedia: React.FC<ImageMediaProps> = (props) => {
           loading={lazy ? 'lazy' : 'eager'}
         />
       ) : null}
-    </picture>
+    </>
   )
 }

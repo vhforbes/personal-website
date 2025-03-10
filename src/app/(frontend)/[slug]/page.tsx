@@ -49,7 +49,7 @@ export default async function Page({ params: paramsPromise, searchParams }: Args
   const { title, layout } = page
 
   return (
-    <div className="xl:max-w-7xl m-auto">
+    <div className="xl:max-w-[1280px] m-auto">
       <RenderBlocks blocks={layout} />
     </div>
   )

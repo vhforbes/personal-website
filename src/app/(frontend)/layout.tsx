@@ -23,7 +23,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body className="bg-background text-neutral font-display flex flex-col min-h-svh">
         <Providers>
           <Header />
-          <main className="grow bg-[url(/topographyLight.svg)] dark:bg-[url(/topographyDark.svg)] bg-repeat">
+          <main className="grow md:p-8 bg-[url(/topographyLight.svg)] dark:bg-[url(/topographyDark.svg)] bg-repeat">
             {children}
           </main>
           <Footer />

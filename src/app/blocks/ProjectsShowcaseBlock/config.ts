@@ -6,6 +6,12 @@ export const ProjectsShowcaseBlock: Block = {
 
   fields: [
     {
+      name: 'title',
+      type: 'text',
+      localized: true,
+      required: true,
+    },
+    {
       name: 'projects',
       type: 'array',
       required: true,

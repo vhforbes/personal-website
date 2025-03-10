@@ -214,6 +214,7 @@ export interface ProfessionalTimelineBlock {
  * via the `definition` "ProjectsShowcaseBlock".
  */
 export interface ProjectsShowcaseBlock {
+  title: string;
   projects: {
     project: number | Project;
     id?: string | null;
@@ -380,6 +381,7 @@ export interface ProfessionalTimelineBlockSelect<T extends boolean = true> {
  * via the `definition` "ProjectsShowcaseBlock_select".
  */
 export interface ProjectsShowcaseBlockSelect<T extends boolean = true> {
+  title?: T;
   projects?:
     | T
     | {
