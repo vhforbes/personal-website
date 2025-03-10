@@ -26,10 +26,10 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div key={i}>
+                <>
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
-                  <Block {...block} disableInnerContainer />
-                </div>
+                  <Block key={i} {...block} disableInnerContainer />
+                </>
               )
             }
           }

@@ -48,11 +48,7 @@ export default async function Page({ params: paramsPromise, searchParams }: Args
 
   const { title, layout } = page
 
-  return (
-    <div>
-      <RenderBlocks blocks={layout} />
-    </div>
-  )
+  return <RenderBlocks blocks={layout} />
 }
 
 // What this cache does?
@@ -70,8 +66,6 @@ const queryPageBySlug = cache(async ({ slug, locale }: { slug: string; locale: '
       },
     },
   })
-
-  // console.log(result)
 
   return result.docs?.[0] || null
 })
