@@ -31,7 +31,7 @@ h3 {
   @apply mb-4 text-2xl md:text-3xl;
 }
 
-a:not(.custom) {
+a:not(.no-underline) {
   @apply underline hover:text-neutral/80;
 }
 
