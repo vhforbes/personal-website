@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
-
 /* 
 light theme:
 text - #0f0f0f (rgb: 15, 15, 15)
@@ -16,7 +15,6 @@ primary - #0089fa (rgb: 0, 137, 250)
 secondary - #0070cc (rgb: 0, 112, 204)
 accent - #00a7fa (rgb: 0, 167, 250)
 */
-
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {

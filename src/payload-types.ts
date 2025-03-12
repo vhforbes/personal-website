@@ -127,7 +127,7 @@ export interface Page {
     title?: string | null;
     media: number | Media;
   };
-  layout: (IntroductionBlock | ProfessionalTimelineBlock | ProjectsShowcaseBlock)[];
+  layout: (IntroductionBlock | ProfessionalTimelineBlock | ProjectsShowcaseBlock | ChooseYourPathBlock)[];
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -244,6 +244,22 @@ export interface Project {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ChooseYourPathBlock".
+ */
+export interface ChooseYourPathBlock {
+  title: string;
+  paths: {
+    name: string;
+    link: string;
+    saberColor: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'chooseYourPath';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -343,6 +359,7 @@ export interface PagesSelect<T extends boolean = true> {
         introduction?: T | IntroductionBlockSelect<T>;
         professionalTimeline?: T | ProfessionalTimelineBlockSelect<T>;
         projectsShowcase?: T | ProjectsShowcaseBlockSelect<T>;
+        chooseYourPath?: T | ChooseYourPathBlockSelect<T>;
       };
   slug?: T;
   updatedAt?: T;
@@ -386,6 +403,23 @@ export interface ProjectsShowcaseBlockSelect<T extends boolean = true> {
     | T
     | {
         project?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ChooseYourPathBlock_select".
+ */
+export interface ChooseYourPathBlockSelect<T extends boolean = true> {
+  title?: T;
+  paths?:
+    | T
+    | {
+        name?: T;
+        link?: T;
+        saberColor?: T;
         id?: T;
       };
   id?: T;

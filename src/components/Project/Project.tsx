@@ -39,13 +39,13 @@ export const ProjectComponent = ({ project }: { project: Project }) => {
         </div>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-1 dark:text-inherit">
+      <ul className="mt-4 flex flex-wrap gap-1 dark:text-inherit">
         {technologies?.map((tech) => (
-          <>
+          <li key={tech.id}>
             {tech['technology-name'] && <Technology key={tech.id} name={tech['technology-name']} />}
-          </>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 }
