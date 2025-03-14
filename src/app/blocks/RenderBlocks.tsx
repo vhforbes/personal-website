@@ -4,12 +4,14 @@ import { IntroductionBlock } from './IntroductionBlock/Component'
 import { ProfessionalTimelineBlock } from './ProfessionalTimeline/Component'
 import { ProjectsShowcaseBlock } from './ProjectsShowcaseBlock/Component'
 import { ChooseYourPathBlock } from './ChooseYourPathBlock/Component'
+import { ExperienceBlock } from './ExperienceBlock/Component'
 
 const blockComponents = {
   introduction: IntroductionBlock,
   professionalTimeline: ProfessionalTimelineBlock,
   projectsShowcase: ProjectsShowcaseBlock,
   chooseYourPath: ChooseYourPathBlock,
+  experience: ExperienceBlock,
 }
 
 export const RenderBlocks: React.FC<{

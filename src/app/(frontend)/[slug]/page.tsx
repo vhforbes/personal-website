@@ -49,7 +49,7 @@ export default async function Page({ params: paramsPromise, searchParams }: Args
   const { title, layout } = page
 
   return (
-    <div className="m-auto p-4 md:p-8 xl:max-w-[1280px]">
+    <div className="m-auto">
       <RenderBlocks blocks={layout} />
     </div>
   )

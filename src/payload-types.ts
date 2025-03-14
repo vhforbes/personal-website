@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     project: Project;
+    experience: Experience;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -80,6 +81,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     project: ProjectSelect<false> | ProjectSelect<true>;
+    experience: ExperienceSelect<false> | ExperienceSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -127,7 +129,13 @@ export interface Page {
     title?: string | null;
     media: number | Media;
   };
-  layout: (IntroductionBlock | ProfessionalTimelineBlock | ProjectsShowcaseBlock | ChooseYourPathBlock)[];
+  layout: (
+    | IntroductionBlock
+    | ProfessionalTimelineBlock
+    | ProjectsShowcaseBlock
+    | ChooseYourPathBlock
+    | ExperienceBlock
+  )[];
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -260,6 +268,56 @@ export interface ChooseYourPathBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "experienceBlock".
+ */
+export interface ExperienceBlock {
+  title?: string | null;
+  experiences?:
+    | {
+        experience?: (number | null) | Experience;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'experience';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "experience".
+ */
+export interface Experience {
+  id: number;
+  name: string;
+  url: string;
+  period: string;
+  logo?: (number | null) | Media;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  technologies?:
+    | {
+        'technology-name'?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -298,6 +356,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'project';
         value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'experience';
+        value: number | Experience;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -360,6 +422,7 @@ export interface PagesSelect<T extends boolean = true> {
         professionalTimeline?: T | ProfessionalTimelineBlockSelect<T>;
         projectsShowcase?: T | ProjectsShowcaseBlockSelect<T>;
         chooseYourPath?: T | ChooseYourPathBlockSelect<T>;
+        experience?: T | ExperienceBlockSelect<T>;
       };
   slug?: T;
   updatedAt?: T;
@@ -427,6 +490,21 @@ export interface ChooseYourPathBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "experienceBlock_select".
+ */
+export interface ExperienceBlockSelect<T extends boolean = true> {
+  title?: T;
+  experiences?:
+    | T
+    | {
+        experience?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -467,6 +545,25 @@ export interface ProjectSelect<T extends boolean = true> {
   name?: T;
   url?: T;
   media?: T;
+  description?: T;
+  technologies?:
+    | T
+    | {
+        'technology-name'?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "experience_select".
+ */
+export interface ExperienceSelect<T extends boolean = true> {
+  name?: T;
+  url?: T;
+  period?: T;
+  logo?: T;
   description?: T;
   technologies?:
     | T

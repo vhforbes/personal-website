@@ -10,20 +10,23 @@ type Props = {
 }
 
 export const ProjectsShowcaseBlock: React.FC<Props> = (props) => {
-  console.log(props)
-
   const { projects, title } = props
 
   return (
-    <section className="mt-4 md:mt-8">
-      <h2 className="text-center">{title}</h2>
+    <section className="from-darkblue-100/30 mt-4 rounded-t-2xl bg-gradient-to-bl to-white p-4 md:mt-8 md:rounded-t-4xl md:p-8 dark:to-black/80">
+      <div className="container m-auto">
+        <h2 className="text-left text-2xl font-bold uppercase md:text-3xl">{title}</h2>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {projects.flatMap((currentProject) =>
-          [0, 1, 2].map((i) => (
-            <ProjectComponent key={`${currentProject.id}-${i}`} project={currentProject.project} />
-          )),
-        )}
+        <div className="m-auto grid gap-4 md:grid-cols-2">
+          {projects.flatMap((currentProject) =>
+            [0, 1].map((i) => (
+              <ProjectComponent
+                key={`${currentProject.id}-${i}`}
+                project={currentProject.project}
+              />
+            )),
+          )}
+        </div>
       </div>
     </section>
   )

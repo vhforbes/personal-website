@@ -1,4 +1,5 @@
 import { ChooseYourPathBlockConfig } from '@/app/blocks/ChooseYourPathBlock/config'
+import { ExperienceBlockConfig } from '@/app/blocks/ExperienceBlock/config'
 import { IntroductionBlock } from '@/app/blocks/IntroductionBlock/config'
 import { ProfessionalTimelineBlock } from '@/app/blocks/ProfessionalTimeline/config'
 import { ProjectsShowcaseBlock } from '@/app/blocks/ProjectsShowcaseBlock/config'
@@ -59,6 +60,7 @@ export const Pages: CollectionConfig = {
                 ProfessionalTimelineBlock,
                 ProjectsShowcaseBlock,
                 ChooseYourPathBlockConfig,
+                ExperienceBlockConfig,
               ],
               required: true,
             },

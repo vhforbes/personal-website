@@ -2,10 +2,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import { introductionJsxConverter } from './jsxConverters'
 import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import type { Media } from '@/payload-types'
-
-import Image from 'next/image'
 import { ImageMedia } from '@/components/Media/Image'
-import { Divider } from '@/components/ui/divider'
 
 type Props = {
   title: string
@@ -17,7 +14,7 @@ export const IntroductionBlock: React.FC<Props> = (props) => {
   const { title, bodyText, picture } = props
 
   return (
-    <div className="m-auto w-full">
+    <div className="container m-auto w-full p-4 md:p-8">
       <span className="text-primary text-4xl">{title}</span>
 
       <div className="flex flex-col items-start md:flex-row">

@@ -62,6 +62,10 @@ accent - #00a7fa (rgb: 0, 167, 250)
   .underline-animation:hover::after {
     @apply scale-x-100;
   }
+
+  .container {
+    @apply xl:max-w-[1280px];
+  }
 }
 
 @layer base {
