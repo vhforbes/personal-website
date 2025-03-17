@@ -21,7 +21,7 @@ export const ExperienceBlock: React.FC<ExperienceBlockTypes> = (props) => {
           const lastItem = idx === experiences.length - 1
 
           return (
-            <div className={cn({ 'border-b-2 border-gray-500': !lastItem })} key={exp.id}>
+            <div key={exp.id} className={cn({ 'border-b-2 border-gray-500': !lastItem })}>
               <ExperienceComponent experience={experience} />
             </div>
           )

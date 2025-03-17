@@ -8,33 +8,25 @@ export const ExperienceComponent = ({ experience }: { experience: Experience }) 
   const { name, period, description, technologies } = experience
 
   return (
-    <div className="">
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="group cursor-pointer px-4">
-            <div className="flex w-full items-center justify-between group-hover:underline">
-              <h3 className="mb-0">
-                <span className="text-2xl">{period}</span>: {name}
-              </h3>
+    <Accordion type="single" collapsible>
+      <AccordionItem value={name}>
+        <AccordionTrigger className="group cursor-pointer px-4">
+          <div className="flex w-full items-center justify-between group-hover:underline">
+            <h3 className="mb-0">
+              <span className="text-2xl">{period}</span>: {name}
+            </h3>
 
-              <div>
-                {technologies?.map((tech) => (
-                  <Technology key={tech.id} name={tech['technology-name'] as string} />
-                ))}
-              </div>
+            <div>
+              {technologies?.map((tech) => (
+                <Technology key={tech.id} name={tech['technology-name'] as string} />
+              ))}
             </div>
-          </AccordionTrigger>
-          <AccordionContent className="px-4">
-            <RichText
-              className="md:pr-24"
-              converters={introductionJsxConverter}
-              data={description}
-            />
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-
-      <div></div>
-    </div>
+          </div>
+        </AccordionTrigger>
+        <AccordionContent className="px-4">
+          <RichText className="md:pr-24" converters={introductionJsxConverter} data={description} />
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   )
 }
