@@ -13,7 +13,7 @@ export const ExperienceComponent = ({ experience }: { experience: Experience }) 
         <AccordionTrigger className="group cursor-pointer px-4">
           <div className="flex w-full items-center justify-between group-hover:underline">
             <h3 className="mb-0">
-              <span className="text-2xl">{period}</span>: {name}
+              <span className="text-xl md:text-2xl">{period}</span>: {name}
             </h3>
 
             <div>
