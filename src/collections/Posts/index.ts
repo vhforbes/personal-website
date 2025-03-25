@@ -95,6 +95,10 @@ export const Posts: CollectionConfig<'posts'> = {
               relationTo: 'media',
             },
             {
+              name: 'contentSnippet',
+              type: 'textarea',
+            },
+            {
               name: 'content',
               type: 'richText',
               editor: lexicalEditor({

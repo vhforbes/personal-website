@@ -1,0 +1,22 @@
+import { Post } from '@/payload-types'
+import Link from 'next/link'
+
+export const PostSnippet = ({ post }: { post: Partial<Post> }) => {
+  return (
+    <Link className="no-underline" href={`blog/${post.slug}`}>
+      <div className="group hover:bg-accent/5 rounded-md border-[1px] border-gray-300 bg-transparent p-4 transition-all duration-300 dark:border-gray-700">
+        <div className="flex items-center justify-between">
+          <h3 className="group-hover:text-darkblue-100 dark:group-hover:text-accent mb-0 pl-0 transition-all duration-500 group-hover:pl-4">
+            {post.title}
+          </h3>
+
+          {/* Todo: Localized date */}
+          {post.createdAt && (
+            <p className="opacity-50">{new Date(post.createdAt).toLocaleString('pt-BR')}</p>
+          )}
+        </div>
+        <p className="mt-2 md:max-w-4/5">{post.contentSnippet}</p>
+      </div>
+    </Link>
+  )
+}

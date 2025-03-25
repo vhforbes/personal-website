@@ -355,6 +355,7 @@ export interface Post {
   title: string;
   slug: string;
   heroImage?: (number | null) | Media;
+  contentSnippet?: string | null;
   content: {
     root: {
       type: string;
@@ -746,6 +747,7 @@ export interface PostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   heroImage?: T;
+  contentSnippet?: T;
   content?: T;
   relatedPosts?: T;
   categories?: T;

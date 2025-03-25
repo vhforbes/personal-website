@@ -1,6 +1,6 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import Link from 'next/link'
+import { PostSnippet } from '@/components/Blog/PostSnippet'
 
 export default async function Page() {
   const payload = await getPayload({ config: configPromise })
@@ -13,24 +13,18 @@ export default async function Page() {
       title: true,
       slug: true,
       categories: true,
+      createdAt: true,
+      contentSnippet: true,
     },
   })
 
-  console.log(posts.docs)
-
   return (
-    <div>
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
-          {posts.docs.map((post) => (
-            <div key={post.id}>
-              {post.title}
-              <h3>{post.title}</h3>
-              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-            </div>
-          ))}
-        </div>
+    <div className="container m-auto mt-4 md:mt-8">
+      <h2 className="text-center">Blog Posts</h2>
+      <div className="prose dark:prose-invert max-w-none">
+        {posts.docs.map((post) => (
+          <PostSnippet key={post.id} post={post} />
+        ))}
       </div>
     </div>
   )
