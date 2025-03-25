@@ -33,12 +33,22 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
   console.log(blogPost)
 
   return (
-    <div>
-      <h1>{blogPost.title}</h1>
+    <div className="m-auto flex max-w-3xl flex-col justify-center p-4 md:p-8">
+      <div className="mb-8 flex flex-col gap-2">
+        <h1 className="mb-2">{blogPost.title}</h1>
+        <span>Published at: {new Date(blogPost.createdAt).toLocaleString('pt-BR')}</span>
+
+        <span>
+          {blogPost.categories?.map((cat) => {
+            if (typeof cat !== 'number') {
+              return <span key={cat.id}>{cat.title}</span>
+            }
+          })}
+        </span>
+      </div>
       {/* todo: Should prob refactor this  introductionJsxConverter*/}
       <RichText
-        className="md:pr-24"
-        converters={introductionJsxConverter}
+        // converters={introductionJsxConverter}
         data={blogPost.content}
       />
     </div>
