@@ -26,7 +26,6 @@ export default async function Page({ params: paramsPromise, searchParams }: Args
 
   const getLocale = (locale: Locales): Locales => {
     if (!locale) {
-      console.log('not finding locale')
       return 'en'
     }
 

@@ -1,4 +1,4 @@
-import { ThemeSelector } from '@/components/ThemeSelector'
+import { ThemeSwitcher } from '@/components/ThemeSwitcher/ThemeSwitcher'
 import Link from 'next/link'
 import { LanguageSelector } from '../LocaleSelector/localeSelector'
 
@@ -10,19 +10,15 @@ export const Header = () => {
           <Link className="underline-animation no-underline" href={'/'}>
             Home
           </Link>
-          <Link className="underline-animation no-underline" href={'/'}>
-            Timeline
-          </Link>
-          <Link className="underline-animation no-underline" href={'/'}>
-            Portfolio
-          </Link>
-          <Link className="underline-animation no-underline" href={'/'}>
-            About
+          <Link className="underline-animation no-underline" href={'/blog'}>
+            Blog
           </Link>
         </div>
 
-        <LanguageSelector />
-        <ThemeSelector />
+        <div className="flex items-center gap-2">
+          <LanguageSelector />
+          <ThemeSwitcher />
+        </div>
       </nav>
     </div>
   )

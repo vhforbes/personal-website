@@ -1,14 +1,14 @@
 import React from 'react'
 
 import { ThemeProvider } from './Theme'
-import { LanguageProvider } from './Language'
+import { LocaleProvider } from './Locale'
 
 export const Providers: React.FC<{
   children: React.ReactNode
 }> = ({ children }) => {
   return (
     <ThemeProvider>
-      <LanguageProvider>{children}</LanguageProvider>
+      <LocaleProvider>{children}</LocaleProvider>
     </ThemeProvider>
   )
 }

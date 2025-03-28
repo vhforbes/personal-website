@@ -1,6 +1,8 @@
 import { Post } from '@/payload-types'
 import Link from 'next/link'
+import { LocalizedDate } from '../ui/localizedDate'
 
+// Could I set in the reques step what is the locale and get it here? So i would render the page with already correct toLocaleString ?
 export const PostSnippet = ({ post }: { post: Partial<Post> }) => {
   return (
     <Link className="no-underline" href={`blog/${post.slug}`}>
@@ -11,9 +13,7 @@ export const PostSnippet = ({ post }: { post: Partial<Post> }) => {
           </h3>
 
           {/* Todo: Localized date */}
-          {post.createdAt && (
-            <p className="opacity-50">{new Date(post.createdAt).toLocaleString('pt-BR')}</p>
-          )}
+          {post.createdAt && <LocalizedDate date={new Date(post.createdAt)} />}
         </div>
         <p className="mt-2 md:max-w-4/5">{post.contentSnippet}</p>
       </div>

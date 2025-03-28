@@ -1,7 +1,7 @@
 import Script from 'next/script'
 import React from 'react'
 
-import { defaultTheme, themeLocalStorageKey } from '../../../../components/ThemeSelector/types'
+import { defaultTheme, themeLocalStorageKey } from '../../../../components/ThemeSwitcher/types'
 
 export const InitTheme: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 'use client'
 
-import { Language, useLanguage } from '@/app/providers/Language'
+import { Locale, useLocale } from '@/app/providers/Locale'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useCallback } from 'react'
@@ -9,7 +9,7 @@ export const LanguageSelector = () => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { setLanguage, language } = useLanguage()
+  const { setLocale, locale } = useLocale()
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -21,18 +21,18 @@ export const LanguageSelector = () => {
     [searchParams],
   )
 
-  const onLanguageChange = (languageToSet: Language & 'en') => {
-    setLanguage(languageToSet)
+  const onLanguageChange = (languageToSet: Locale & 'en') => {
+    setLocale(languageToSet)
     router.push(pathname + '?' + createQueryString('locale', languageToSet))
   }
 
   return (
-    <Select onValueChange={onLanguageChange} value={language}>
+    <Select onValueChange={onLanguageChange} value={locale}>
       <SelectTrigger
         aria-label="Select a theme"
-        className="w-auto cursor-pointer gap-2 border-[1px] pl-0 md:pl-3"
+        className="w-auto cursor-pointer gap-2 border-[1px] p-2"
       >
-        <SelectValue>{language?.toUpperCase()}</SelectValue>
+        <SelectValue>{locale?.toUpperCase()}</SelectValue>
       </SelectTrigger>
       <SelectContent className="bg-background">
         <SelectItem className="cursor-pointer" value="pt">
