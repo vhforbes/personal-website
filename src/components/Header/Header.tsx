@@ -1,6 +1,7 @@
 import { ThemeSwitcher } from '@/components/ThemeSwitcher/ThemeSwitcher'
 import Link from 'next/link'
 import { LanguageSelector } from '../LocaleSelector/localeSelector'
+import { Suspense } from 'react'
 
 export const Header = () => {
   return (
@@ -16,7 +17,9 @@ export const Header = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <LanguageSelector />
+          <Suspense>
+            <LanguageSelector />
+          </Suspense>
           <ThemeSwitcher />
         </div>
       </nav>

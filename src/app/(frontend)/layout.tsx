@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import './globals.css'
 import { Providers } from '../providers'
 import { InitTheme } from '../providers/Theme/InitTheme'
@@ -21,13 +21,19 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body className="bg-background text-neutral font-display flex min-h-svh flex-col">
-        <Providers>
-          <Header />
-          <main className="grow bg-[url(/topographyLight.svg)] bg-repeat dark:bg-[url(/topographyDark.svg)]">
-            {children}
-          </main>
-          <Footer />
-        </Providers>
+        {/* 
+          Added this Suspense because of localeContext using useSearchParams()
+          Should be intersesting to understand more
+        */}
+        <Suspense>
+          <Providers>
+            <Header />
+            <main className="grow bg-[url(/topographyLight.svg)] bg-repeat dark:bg-[url(/topographyDark.svg)]">
+              {children}
+            </main>
+            <Footer />
+          </Providers>
+        </Suspense>
       </body>
     </html>
   )
