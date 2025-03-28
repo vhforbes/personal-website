@@ -20,6 +20,7 @@ export const Categories: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     // Why would I need a slug for categories?
     // ...slugField(),

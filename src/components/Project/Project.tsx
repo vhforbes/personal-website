@@ -35,7 +35,7 @@ export const ProjectComponent = ({ project }: { project: Project }) => {
             className="aspect-video h-fit w-full object-cover md:w-36"
             picture={media as Media}
           />
-          <p className="dark:text-sm">{description}</p>
+          <p className="text-sm">{description}</p>
         </div>
       </div>
 
