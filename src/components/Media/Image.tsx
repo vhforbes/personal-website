@@ -20,6 +20,9 @@ const placeholderBlur =
 
 export const ImageMedia: React.FC<ImageMediaProps> = (props) => {
   const { picture, className, lazy } = props
+
+  if (!picture) return null
+
   const { url, alt, width, height } = picture
 
   return (
