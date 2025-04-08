@@ -38,6 +38,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    schemaName: 'personal-website',
   }),
   sharp, // what is this
   i18n: {
@@ -48,8 +49,5 @@ export default buildConfig({
     defaultLocale: 'en',
     locales: ['en', 'pt'],
   },
-  plugins: [
-    payloadCloudPlugin(),
-    // storage-adapter-placeholder
-  ],
+  plugins: [payloadCloudPlugin()],
 })
