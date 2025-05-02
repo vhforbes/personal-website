@@ -1,7 +1,8 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
+// import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
 import path from 'path'
@@ -53,14 +54,14 @@ export default buildConfig({
   },
   plugins: [
     payloadCloudPlugin(),
-    vercelBlobStorage({
-      enabled: true, // Optional, defaults to true
-      // Specify which collections should use Vercel Blob
+    uploadthingStorage({
       collections: {
         media: true,
       },
-      // Token provided by Vercel once Blob storage is added to your Vercel project
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+      options: {
+        token: process.env.UPLOADTHING_TOKEN,
+        acl: 'public-read',
+      },
     }),
   ],
 })
