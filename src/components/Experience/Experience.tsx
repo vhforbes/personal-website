@@ -11,12 +11,12 @@ export const ExperienceComponent = ({ experience }: { experience: Experience }) 
     <Accordion type="single" collapsible>
       <AccordionItem value={name}>
         <AccordionTrigger className="group cursor-pointer px-4">
-          <div className="flex w-full items-center justify-between group-hover:underline">
-            <h3 className="mb-0">
+          <div className="flex w-full items-center justify-between">
+            <h3 className="mb-0 group-hover:underline">
               <span className="text-xl md:text-2xl">{period}</span>: {name}
             </h3>
 
-            <div>
+            <div className="flex flex-wrap gap-1">
               {technologies?.map((tech) => (
                 <Technology key={tech.id} name={tech['technology-name'] as string} />
               ))}
