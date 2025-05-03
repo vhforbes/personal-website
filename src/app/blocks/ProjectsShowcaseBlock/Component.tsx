@@ -18,14 +18,9 @@ export const ProjectsShowcaseBlock: React.FC<Props> = (props) => {
         <h2 className="text-left text-2xl font-bold uppercase md:text-3xl">{title}</h2>
 
         <div className="m-auto grid gap-4 md:grid-cols-2">
-          {projects.flatMap((currentProject) =>
-            [0, 1].map((i) => (
-              <ProjectComponent
-                key={`${currentProject.id}-${i}`}
-                project={currentProject.project}
-              />
-            )),
-          )}
+          {projects.map((project) => (
+            <ProjectComponent key={`${project.id}`} project={project.project} />
+          ))}
         </div>
       </div>
     </section>
