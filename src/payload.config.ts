@@ -4,6 +4,10 @@ import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
 // import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+<<<<<<< HEAD
+=======
+import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
+>>>>>>> 07f1068 (rollback and storage adaptor)
 
 import path from 'path'
 import { buildConfig } from 'payload'
