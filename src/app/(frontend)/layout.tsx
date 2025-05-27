@@ -6,8 +6,23 @@ import { Header } from '@/components/Header/Header'
 import { Footer } from '@/components/Footer/Footer'
 
 export const metadata = {
-  description: 'Victor Hugo Forbes Web Deveoper Portfolio',
+  description: 'Victor Hugo Forbes Web Developer Portfolio',
   title: 'Victor Hugo Forbes - Dev',
+  openGraph: {
+    title: 'Victor Hugo Forbes - Dev',
+    description: 'Victor Hugo Forbes Web Developer Portfolio',
+    url: '/', // Or the specific URL of the page
+    siteName: 'Fullstack Dev Portfolio',
+    images: [
+      {
+        url: '/thumbnail.jpg', // Relative to metadataBase
+        width: 1700,
+        height: 1073,
+        alt: 'A preview image for My Personal Porfolio',
+      },
+      // You can add more images here if needed (e.g., different sizes)
+    ],
+  },
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
