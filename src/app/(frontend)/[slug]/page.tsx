@@ -47,6 +47,8 @@ export default async function Page({ params: paramsPromise, searchParams }: Args
 
   const { title, layout } = page
 
+  console.log(page)
+
   return (
     <div className="m-auto">
       <RenderBlocks blocks={layout} />

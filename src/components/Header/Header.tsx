@@ -14,6 +14,9 @@ export const Header = () => {
           <Link className="underline-animation no-underline" href={'/blog'}>
             Blog
           </Link>
+          <Link className="underline-animation no-underline" href={'/contact'}>
+            Contact
+          </Link>
         </div>
 
         <div className="flex items-center gap-2">

@@ -1,4 +1,5 @@
 import { ChooseYourPathBlockConfig } from '@/app/blocks/ChooseYourPathBlock/config'
+import { ContactBlockConfig } from '@/app/blocks/ContactBlock/config'
 import { ExperienceBlockConfig } from '@/app/blocks/ExperienceBlock/config'
 import { IntroductionBlock } from '@/app/blocks/IntroductionBlock/config'
 import { ProfessionalTimelineBlock } from '@/app/blocks/ProfessionalTimeline/config'
@@ -39,7 +40,7 @@ export const Pages: CollectionConfig = {
                   name: 'media',
                   type: 'upload',
                   relationTo: 'media',
-                  required: true,
+                  required: false,
                 },
               ],
             },
@@ -61,6 +62,7 @@ export const Pages: CollectionConfig = {
                 ProjectsShowcaseBlock,
                 ChooseYourPathBlockConfig,
                 ExperienceBlockConfig,
+                ContactBlockConfig,
               ],
               required: true,
             },

@@ -5,6 +5,7 @@ import { ProfessionalTimelineBlock } from './ProfessionalTimeline/Component'
 import { ProjectsShowcaseBlock } from './ProjectsShowcaseBlock/Component'
 import { ChooseYourPathBlock } from './ChooseYourPathBlock/Component'
 import { ExperienceBlock } from './ExperienceBlock/Component'
+import { ContactBlock } from './ContactBlock/Component'
 
 const blockComponents = {
   introduction: IntroductionBlock,
@@ -12,6 +13,7 @@ const blockComponents = {
   projectsShowcase: ProjectsShowcaseBlock,
   chooseYourPath: ChooseYourPathBlock,
   experience: ExperienceBlock,
+  contact: ContactBlock,
 }
 
 export const RenderBlocks: React.FC<{

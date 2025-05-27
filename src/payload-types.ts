@@ -74,6 +74,7 @@ export interface Config {
     experience: Experience;
     posts: Post;
     categories: Category;
+    contact: Contact;
     'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +89,7 @@ export interface Config {
     experience: ExperienceSelect<false> | ExperienceSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    contact: ContactSelect<false> | ContactSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -138,9 +140,9 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  hero: {
+  hero?: {
     title?: string | null;
-    media: number | Media;
+    media?: (number | null) | Media;
   };
   layout: (
     | IntroductionBlock
@@ -148,6 +150,7 @@ export interface Page {
     | ProjectsShowcaseBlock
     | ChooseYourPathBlock
     | ExperienceBlock
+    | ContactBlock
   )[];
   slug?: string | null;
   updatedAt: string;
@@ -324,6 +327,51 @@ export interface Experience {
   technologies?:
     | {
         'technology-name'?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contactBlock".
+ */
+export interface ContactBlock {
+  title?: string | null;
+  contact?: (number | null) | Contact;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contact';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact".
+ */
+export interface Contact {
+  id: number;
+  name: string;
+  email: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  socials?:
+    | {
+        name?: string | null;
+        logo?: (number | null) | Media;
+        url: string;
         id?: string | null;
       }[]
     | null;
@@ -525,6 +573,10 @@ export interface PayloadLockedDocument {
         value: number | Category;
       } | null)
     | ({
+        relationTo: 'contact';
+        value: number | Contact;
+      } | null)
+    | ({
         relationTo: 'payload-jobs';
         value: number | PayloadJob;
       } | null);
@@ -590,6 +642,7 @@ export interface PagesSelect<T extends boolean = true> {
         projectsShowcase?: T | ProjectsShowcaseBlockSelect<T>;
         chooseYourPath?: T | ChooseYourPathBlockSelect<T>;
         experience?: T | ExperienceBlockSelect<T>;
+        contact?: T | ContactBlockSelect<T>;
       };
   slug?: T;
   updatedAt?: T;
@@ -667,6 +720,16 @@ export interface ExperienceBlockSelect<T extends boolean = true> {
         experience?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contactBlock_select".
+ */
+export interface ContactBlockSelect<T extends boolean = true> {
+  title?: T;
+  contact?: T;
   id?: T;
   blockName?: T;
 }
@@ -772,6 +835,25 @@ export interface PostsSelect<T extends boolean = true> {
  */
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_select".
+ */
+export interface ContactSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  description?: T;
+  socials?:
+    | T
+    | {
+        name?: T;
+        logo?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
