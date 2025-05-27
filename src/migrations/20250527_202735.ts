@@ -2,6 +2,50 @@ import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
+    DO $$ BEGIN
+      CREATE TYPE "personal-website"."_locales" AS ENUM('en', 'pt');
+    EXCEPTION
+      WHEN duplicate_object THEN null;
+    END $$;
+
+    DO $$ BEGIN
+      CREATE TYPE "personal-website"."enum_posts_status" AS ENUM('draft', 'published');
+    EXCEPTION
+      WHEN duplicate_object THEN null;
+    END $$;
+
+    DO $$ BEGIN
+      CREATE TYPE "personal-website"."enum__posts_v_version_status" AS ENUM('draft', 'published');
+    EXCEPTION
+      WHEN duplicate_object THEN null;
+    END $$;
+
+    DO $$ BEGIN
+      CREATE TYPE "personal-website"."enum__posts_v_published_locale" AS ENUM('en', 'pt');
+    EXCEPTION
+      WHEN duplicate_object THEN null;
+    END $$;
+
+    DO $$ BEGIN
+      CREATE TYPE "personal-website"."enum_payload_jobs_log_task_slug" AS ENUM('inline', 'schedulePublish');
+    EXCEPTION
+      WHEN duplicate_object THEN null;
+    END $$;
+
+    DO $$ BEGIN
+      CREATE TYPE "personal-website"."enum_payload_jobs_log_state" AS ENUM('failed', 'succeeded');
+    EXCEPTION
+      WHEN duplicate_object THEN null;
+    END $$;
+
+    DO $$ BEGIN
+      CREATE TYPE "personal-website"."enum_payload_jobs_task_slug" AS ENUM('inline', 'schedulePublish');
+    EXCEPTION
+      WHEN duplicate_object THEN null;
+    END $$;
+  `)
+
+  await db.execute(sql`
    CREATE TYPE "personal-website"."_locales" AS ENUM('en', 'pt');
   CREATE TYPE "personal-website"."enum_posts_status" AS ENUM('draft', 'published');
   CREATE TYPE "personal-website"."enum__posts_v_version_status" AS ENUM('draft', 'published');
