@@ -15,7 +15,7 @@ export const metadata = {
     siteName: 'Fullstack Dev Portfolio',
     images: [
       {
-        url: '/thumbnail.jpg', // Relative to metadataBase
+        url: '/thumbnail.png', // Relative to metadataBase
         width: 1700,
         height: 1073,
         alt: 'A preview image for My Personal Porfolio',
