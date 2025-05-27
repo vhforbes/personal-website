@@ -24,7 +24,7 @@ export const IntroductionBlock: React.FC<Props> = (props) => {
           data={bodyText}
         />
 
-        <div className="md:w-3/4">
+        <div className="md:w-1/4">
           <ImageMedia
             className="hover:border-accent m-auto mt-4 w-full rounded-3xl border-2 border-gray-200 md:mt-0"
             picture={picture}
