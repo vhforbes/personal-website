@@ -18,12 +18,18 @@ export const IntroductionBlock: React.FC<Props> = (props) => {
       <span className="text-primary text-4xl">{title}</span>
 
       <div className="flex flex-col items-start md:flex-row">
-        <RichText className="md:pr-24" converters={introductionJsxConverter} data={bodyText} />
-
-        <ImageMedia
-          className="hover:border-accent m-auto mt-4 w-72 rounded-3xl border-2 border-gray-200 md:mt-0"
-          picture={picture}
+        <RichText
+          className="md:w-3/4 md:pr-24"
+          converters={introductionJsxConverter}
+          data={bodyText}
         />
+
+        <div className="md:w-3/4">
+          <ImageMedia
+            className="hover:border-accent m-auto mt-4 w-72 rounded-3xl border-2 border-gray-200 md:mt-0"
+            picture={picture}
+          />
+        </div>
       </div>
     </div>
   )
