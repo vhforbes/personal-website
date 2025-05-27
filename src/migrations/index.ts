@@ -1,9 +1,9 @@
-import * as migration_20250527_202735 from './20250527_202735';
+import * as migration_20250527_203440 from './20250527_203440';
 
 export const migrations = [
   {
-    up: migration_20250527_202735.up,
-    down: migration_20250527_202735.down,
-    name: '20250527_202735'
+    up: migration_20250527_203440.up,
+    down: migration_20250527_203440.down,
+    name: '20250527_203440'
   },
 ];
