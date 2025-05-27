@@ -20,12 +20,10 @@ export const IntroductionBlock: React.FC<Props> = (props) => {
       <div className="flex flex-col items-start md:flex-row">
         <RichText className="md:pr-24" converters={introductionJsxConverter} data={bodyText} />
 
-        <div className="mt-4 w-72 md:mt-0">
-          <ImageMedia
-            className="hover:border-accent m-auto w-72 rounded-3xl border-2 border-gray-200"
-            picture={picture}
-          />
-        </div>
+        <ImageMedia
+          className="hover:border-accent m-auto mt-4 w-72 rounded-3xl border-2 border-gray-200 md:mt-0"
+          picture={picture}
+        />
       </div>
     </div>
   )
