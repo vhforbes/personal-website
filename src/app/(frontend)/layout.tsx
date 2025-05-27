@@ -5,7 +5,10 @@ import { InitTheme } from '../providers/Theme/InitTheme'
 import { Header } from '@/components/Header/Header'
 import { Footer } from '@/components/Footer/Footer'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://victorhugoforbes.com/'
+
 export const metadata = {
+  metadataBase: new URL(siteUrl), // Essential for resolving relative image paths
   description: 'Victor Hugo Forbes Web Developer Portfolio',
   title: 'Victor Hugo Forbes - Dev',
   openGraph: {
